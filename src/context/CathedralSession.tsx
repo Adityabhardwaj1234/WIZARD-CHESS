@@ -65,6 +65,9 @@ import {
 import { decodeGameFromUrlHash } from '../sharing/shareUrl';
 import { DEFAULT_XRAY_CONFIG } from '../xray/xrayEngine';
 
+// Re-exported so components can pull the whole session surface from one module.
+export type { PlayerColor, PieceType, VerboseMove } from '../lib/cathedral';
+
 export type PlayMode = 'engine' | 'two-player';
 export type VisualQuality = 'low' | 'medium' | 'high';
 export type BoardTheme = 'classic-green' | 'tournament-slate' | 'woodland' | 'high-contrast';

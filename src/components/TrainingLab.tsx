@@ -811,6 +811,23 @@ interface RunBatchArgs {
   poolRef: React.MutableRefObject<Worker[]>;
 }
 
+interface HeadlessGameConfig {
+  gameIndex: number;
+  openingIndex: number;
+  candidateColor: 'w' | 'b';
+  candidateParams: Record<string, number>;
+  championParams: Record<string, number>;
+  opponentPresetId: string | null;
+  maxDepth: number;
+  timeLimitMs: number;
+  maxPlies: number;
+  seed: number;
+}
+
+/** `learningEngine.js` is plain JS, so its destructured defaults infer literal types
+ *  (e.g. `opponentPresetId = null` narrows to `null`). Cast once at the boundary. */
+type SimulateSingleHeadlessGame = (config: HeadlessGameConfig) => GameResult;
+
 async function runHeadlessBatch({
   candidateParams,
   championParams,
@@ -831,9 +848,10 @@ async function runHeadlessBatch({
   // Fallback to synchronous simulation if Worker is unavailable
   if (typeof window === 'undefined' || typeof Worker === 'undefined') {
     const mod = await import('../learning/learningEngine.js');
+    const simulate = mod.simulateSingleHeadlessGame as unknown as SimulateSingleHeadlessGame;
     for (let i = 0; i < totalGames; i++) {
       if (isCancelled()) break;
-      const gRes = mod.simulateSingleHeadlessGame({
+      const gRes = simulate({
         gameIndex: i,
         openingIndex: Math.floor(i / 2),
         candidateColor: i % 2 === 0 ? 'w' : 'b',
@@ -844,7 +862,7 @@ async function runHeadlessBatch({
         timeLimitMs: 25,
         maxPlies: 76,
         seed: seed + i * 31
-      }) as GameResult;
+      });
       results.push(gRes);
       onProgress(results.length);
     }
@@ -864,9 +882,10 @@ async function runHeadlessBatch({
     } catch (_err) {
       // Fallback if Worker bundling is blocked
       void import('../learning/learningEngine.js').then(mod => {
+        const simulate = mod.simulateSingleHeadlessGame as unknown as SimulateSingleHeadlessGame;
         for (let i = 0; i < totalGames; i++) {
           if (isCancelled()) break;
-          const gRes = mod.simulateSingleHeadlessGame({
+          const gRes = simulate({
             gameIndex: i,
             openingIndex: Math.floor(i / 2),
             candidateColor: i % 2 === 0 ? 'w' : 'b',
@@ -877,7 +896,7 @@ async function runHeadlessBatch({
             timeLimitMs: 25,
             maxPlies: 76,
             seed: seed + i * 31
-          }) as GameResult;
+          });
           results.push(gRes);
           onProgress(results.length);
         }
