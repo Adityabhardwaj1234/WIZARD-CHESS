@@ -465,6 +465,19 @@ select:focus-visible,
   box-shadow: inset 0 0 0 4px #eab308;
 }
 
+.board-square.sq-drag-hover {
+  box-shadow: inset 0 0 0 4px rgba(56, 189, 248, 0.9);
+}
+
+.captured-piece-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  opacity: 0.92;
+}
+
 .board-square.sq-focused {
   box-shadow: inset 0 0 0 2.5px rgba(14, 165, 233, 0.85);
 }

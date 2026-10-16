@@ -553,9 +553,19 @@ export function CathedralBoard({ compact = false }: { compact?: boolean }) {
                     </span>
                   )}
 
-                  {/* Chess Piece SVG */}
-                  {cell && !(dragState && dragState.from === sq) && (
-                    <div className="square-piece-holder">
+                  {/* Chess Piece SVG
+                   * The holder is ALWAYS mounted, never conditionally removed.
+                   * Removing it on pointerdown deletes the mousedown target mid-gesture,
+                   * and browsers then never dispatch `click` - which silently killed
+                   * click-to-move while drag still worked (drag is driven by the window
+                   * pointerup handler). Hide it with opacity instead so the node stays in
+                   * the tree and remains the hit-test target. */}
+                  {cell && (
+                    <div
+                      className="square-piece-holder"
+                      style={dragState && dragState.from === sq ? { opacity: 0 } : undefined}
+                      aria-hidden={dragState && dragState.from === sq ? true : undefined}
+                    >
                       <PieceSvg type={cell.type} color={cell.color} />
                     </div>
                   )}
