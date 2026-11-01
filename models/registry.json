@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-16T11:32:30.102461+00:00",
+  "defaultModelId": "cathedral-classical-v3",
+  "models": [
+    {
+      "id": "cathedral-classical-v3",
+      "name": "Cathedral Classical Handcrafted v3",
+      "version": "3.1.0",
+      "modelType": "classical_24",
+      "trained": false,
+      "artifactPath": "models/exports/cathedral_classical_v3.json",
+      "description": "Balanced 24-parameter tapered Middlegame/Endgame evaluation with PST, mobility, king shelter, and passed-pawn scaling."
+    },
+    {
+      "id": "cathedral-neural-v1",
+      "name": "CathedralNet Neural Evaluator v1",
+      "version": "1.0.0",
+      "modelType": "neural_mlp",
+      "trained": true,
+      "artifactPath": "models/exports/cathedral_net_v1.json",
+      "description": "Genuine 3-layer MLP neural network (780->48->24->1, 38,665 parameters) trained in Python on 2000 positions. Test MAE: 182.99 cp, Sign Accuracy: 91.84%, r=0.9744."
+    },
+    {
+      "id": "cathedral-hybrid-ensemble-v1",
+      "name": "Cathedral Hybrid Ensemble (Classical + Neural)",
+      "version": "1.0.0",
+      "modelType": "hybrid_ensemble",
+      "trained": true,
+      "artifactPath": "models/exports/cathedral_hybrid_v1.json",
+      "description": "Blends 70% classical tapered evaluation with 30% CathedralNet neural network positional evaluation for tactical stability and neural pattern recognition."
+    },
+    {
+      "id": "cathedral-aggressive-tal",
+      "name": "Cathedral Aggressive Initiative",
+      "version": "1.1.0",
+      "modelType": "classical_24",
+      "trained": true,
+      "artifactPath": "models/exports/cathedral_aggressive_v1.json",
+      "description": "High-initiative parameter profile prioritizing king-zone attacks, piece mobility, and central outposts."
+    },
+    {
+      "id": "cathedral-endgame-capablanca",
+      "name": "Cathedral Endgame Technician",
+      "version": "1.1.0",
+      "modelType": "classical_24",
+      "trained": true,
+      "artifactPath": "models/exports/cathedral_endgame_v1.json",
+      "description": "Endgame-focused evaluation profile emphasizing passed pawns, 7th-rank rooks, bishop pair, and pawn structure."
+    }
+  ]
+}

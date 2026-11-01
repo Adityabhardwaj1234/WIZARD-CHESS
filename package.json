@@ -1,0 +1,27 @@
+{
+  "name": "wizards-chess-production-edition",
+  "version": "3.1.0",
+  "description": "Wizard's Chess V3: Cathedral Evolution — 2D Chess Platform, Smooth L-Path Animations, 12-Tier + Super Thinking Engine, Python Neural Model Studio, 11-Layer X-Ray & Video Export",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --turbo",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test src/tests/suite.test.js",
+    "test:models": "PYTHONPATH=. python3 -m unittest discover -s models/tests -v",
+    "benchmark": "node models/datasets/generate_dataset.mjs && PYTHONPATH=. python3 models/evaluation/benchmark_models.py"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "next": "^15.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.4.5"
+  }
+}

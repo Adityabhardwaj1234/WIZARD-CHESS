@@ -1,0 +1,44 @@
+name: Wizard's Chess V3 Production CI Pipeline
+
+on:
+  push:
+    branches: [main, master, "feat/**"]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  verify-and-build:
+    name: Rules, Engine, Models, Typecheck & Production Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies for Model Studio
+        run: python3 -m pip install numpy scipy
+
+      - name: Install Node dependencies reproducibly from lockfile
+        run: npm ci
+
+      - name: Run TypeScript type checking
+        run: npm run typecheck
+
+      - name: Run Chess Rules, Perft, Animation, Engine, Super Thinking & Storage tests
+        run: npm test
+
+      - name: Run Python Model Ecosystem & Cross-Language Parity tests
+        run: npm run test:models
+
+      - name: Build Next.js production bundle
+        run: npm run build

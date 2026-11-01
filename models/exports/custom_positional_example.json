@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "custom-positional-maestro-v1",
+  "name": "Custom Positional Maestro v1",
+  "version": "1.0.0",
+  "modelType": "classical_24",
+  "supportedEngineInterface": "cathedral-eval-v1",
+  "createdAt": "2026-10-16T11:32:34.031414+00:00",
+  "trained": false,
+  "description": "Example custom model emphasizing bishop pair, open files, and knight outposts.",
+  "architecture": {
+    "type": "Tapered-24-Param",
+    "parameterCount": 24
+  },
+  "evalParams": {
+    "pawnMg": 100,
+    "knightMg": 320,
+    "bishopMg": 335,
+    "rookMg": 500,
+    "queenMg": 920,
+    "pawnEg": 115,
+    "knightEg": 310,
+    "bishopEg": 340,
+    "rookEg": 530,
+    "queenEg": 940,
+    "pstScaleMg": 100,
+    "pstScaleEg": 100,
+    "bishopPairMg": 42,
+    "bishopPairEg": 58,
+    "mobilityWeight": 6,
+    "kingShieldBonus": 13,
+    "kingZoneAttack": 11,
+    "isolatedPawnPen": 14,
+    "doubledPawnPen": 14,
+    "passedPawnScale": 120,
+    "rookOpenFile": 30,
+    "rookSeventh": 24,
+    "outpostBonus": 24,
+    "tempoBonus": 12
+  },
+  "trainingMetadata": {
+    "author": "Local Developer Example",
+    "sampleItalianEvalCp": 12
+  }
+}

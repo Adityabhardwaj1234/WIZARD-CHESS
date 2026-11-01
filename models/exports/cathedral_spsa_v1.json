@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "cathedral-spsa-python-v1",
+  "name": "Cathedral SPSA Tuned Vector v1",
+  "version": "1.0.0",
+  "modelType": "classical_24",
+  "supportedEngineInterface": "cathedral-eval-v1",
+  "createdAt": "2026-10-16T11:32:32.992875+00:00",
+  "trained": true,
+  "description": "24-parameter evaluation vector tuned via Python SPSA against search targets.",
+  "architecture": {
+    "type": "Tapered-24-Param",
+    "parameterCount": 24
+  },
+  "evalParams": {
+    "pawnMg": 102,
+    "knightMg": 320,
+    "bishopMg": 333,
+    "rookMg": 499,
+    "queenMg": 919,
+    "pawnEg": 113,
+    "knightEg": 310,
+    "bishopEg": 339,
+    "rookEg": 530,
+    "queenEg": 940,
+    "pstScaleMg": 100,
+    "pstScaleEg": 100,
+    "bishopPairMg": 34,
+    "bishopPairEg": 45,
+    "mobilityWeight": 3,
+    "kingShieldBonus": 14,
+    "kingZoneAttack": 8,
+    "isolatedPawnPen": 16,
+    "doubledPawnPen": 15,
+    "passedPawnScale": 106,
+    "rookOpenFile": 22,
+    "rookSeventh": 26,
+    "outpostBonus": 18,
+    "tempoBonus": 11
+  },
+  "trainingMetadata": {
+    "method": "SPSA-24",
+    "history": [
+      {
+        "iteration": 1,
+        "rmseCp": 196.93
+      },
+      {
+        "iteration": 5,
+        "rmseCp": 197.39
+      },
+      {
+        "iteration": 10,
+        "rmseCp": 197.71
+      },
+      {
+        "iteration": 15,
+        "rmseCp": 197.38
+      },
+      {
+        "iteration": 20,
+        "rmseCp": 196.63
+      },
+      {
+        "iteration": 25,
+        "rmseCp": 196.59
+      }
+    ]
+  }
+}

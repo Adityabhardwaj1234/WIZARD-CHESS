@@ -1,0 +1,71 @@
+{
+  "generatedAt": "2026-10-16T11:32:33Z",
+  "testSetSize": 300,
+  "models": [
+    {
+      "id": "cathedral-classical-v3",
+      "name": "Cathedral Classical Handcrafted v3",
+      "version": "3.1.0",
+      "modelType": "classical_24",
+      "trained": false,
+      "testCount": 300,
+      "maeCp": 129.85,
+      "rmseCp": 211.65,
+      "signAccuracyPct": 92.55,
+      "pearsonR": 0.9675,
+      "inferenceLatencyUsPerPos": 76.17
+    },
+    {
+      "id": "cathedral-neural-v1",
+      "name": "CathedralNet Neural Evaluator v1",
+      "version": "1.0.0",
+      "modelType": "neural_mlp",
+      "trained": true,
+      "testCount": 300,
+      "maeCp": 182.98,
+      "rmseCp": 247.88,
+      "signAccuracyPct": 91.84,
+      "pearsonR": 0.9744,
+      "inferenceLatencyUsPerPos": 41.51
+    },
+    {
+      "id": "cathedral-hybrid-ensemble-v1",
+      "name": "Cathedral Hybrid Ensemble (Classical + Neural)",
+      "version": "1.0.0",
+      "modelType": "hybrid_ensemble",
+      "trained": true,
+      "testCount": 300,
+      "maeCp": 118.03,
+      "rmseCp": 186.95,
+      "signAccuracyPct": 93.62,
+      "pearsonR": 0.9761,
+      "inferenceLatencyUsPerPos": 146.92
+    },
+    {
+      "id": "cathedral-aggressive-tal",
+      "name": "Cathedral Aggressive Initiative",
+      "version": "1.1.0",
+      "modelType": "classical_24",
+      "trained": true,
+      "testCount": 300,
+      "maeCp": 127.9,
+      "rmseCp": 210.46,
+      "signAccuracyPct": 92.2,
+      "pearsonR": 0.9681,
+      "inferenceLatencyUsPerPos": 103.09
+    },
+    {
+      "id": "cathedral-endgame-capablanca",
+      "name": "Cathedral Endgame Technician",
+      "version": "1.1.0",
+      "modelType": "classical_24",
+      "trained": true,
+      "testCount": 300,
+      "maeCp": 130.96,
+      "rmseCp": 214.51,
+      "signAccuracyPct": 91.84,
+      "pearsonR": 0.967,
+      "inferenceLatencyUsPerPos": 80.85
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "cathedral-aggressive-tal",
+  "name": "Cathedral Aggressive Initiative",
+  "version": "1.1.0",
+  "modelType": "classical_24",
+  "supportedEngineInterface": "cathedral-eval-v1",
+  "createdAt": "2026-10-16T11:32:30.102461+00:00",
+  "trained": true,
+  "description": "High-initiative parameter profile prioritizing king-zone attacks, piece mobility, and central outposts.",
+  "architecture": {
+    "type": "Tapered-24-Param",
+    "parameterCount": 24
+  },
+  "evalParams": {
+    "pawnMg": 100,
+    "knightMg": 320,
+    "bishopMg": 335,
+    "rookMg": 500,
+    "queenMg": 920,
+    "pawnEg": 115,
+    "knightEg": 310,
+    "bishopEg": 340,
+    "rookEg": 530,
+    "queenEg": 940,
+    "pstScaleMg": 100,
+    "pstScaleEg": 100,
+    "bishopPairMg": 44,
+    "bishopPairEg": 46,
+    "mobilityWeight": 7,
+    "kingShieldBonus": 13,
+    "kingZoneAttack": 19,
+    "isolatedPawnPen": 14,
+    "doubledPawnPen": 14,
+    "passedPawnScale": 105,
+    "rookOpenFile": 24,
+    "rookSeventh": 24,
+    "outpostBonus": 26,
+    "tempoBonus": 18
+  },
+  "trainingMetadata": {
+    "method": "Tactical Initiative Optimization"
+  }
+}
